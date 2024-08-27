@@ -1,52 +1,19 @@
-html {
-    scroll-behavior: smooth;
-}
-
+/* 全局樣式 */
 body {
-    font-family: Arial, sans-serif;
+    background-color: #000000; /* 全局背景為黑色 */
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
-#sidebar {
-    background-color: #333;
-    color: #fff;
-    width: 200px;
-    height: 100vh;
-    position: fixed;
-    transition: width 0.3s;
-}
-
-#sidebar.collapsed {
-    width: 60px;
-}
-
-#menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#menu ul li {
-    margin: 10px 0;
-}
-
-#menu ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
+/* 頁面結構 */
 #main-content {
-    margin-left: 200px;
+    margin-left: 250px;
     padding: 20px;
-    flex: 1;
-    transition: margin-left 0.3s;
 }
 
-#sidebar.collapsed + #main-content {
-    margin-left: 60px;
-}
-
+/* 搜尋面板 */
 #search-panel {
     display: flex;
     align-items: center;
@@ -54,59 +21,208 @@ body {
 }
 
 #toggleMenu {
-    background: none;
-    border: none;
-    color: #333;
     font-size: 20px;
+    background-color: rgba(51, 51, 51, 0.377);
+    color: #fff;
+    border: none;
+    padding: 10px;
     cursor: pointer;
     margin-right: 10px;
 }
 
 #search-box {
-    flex: 1;
-    padding: 8px;
-    font-size: 16px;
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #333333; /* 搜索框邊框顏色 */
+    background-color: #ffffff; /* 搜索框背景顏色 */
+    color: #000000; /* 搜索框文字顏色 */
 }
 
-#profile-pic {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+/* 側邊欄 */
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333333; /* 側邊欄顏色為灰色 */
+    padding-top: 20px;
+    transition: width 0.3s;
+    overflow: auto; /* 確保內容可以滾動 */
 }
 
-h1 {
-    font-size: 36px;
-    color: #333;
+#sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-h2 {
-    color: #666;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
+#sidebar nav ul li {
     margin: 20px 0;
 }
 
-table, th, td {
-    border: 1px solid #ddd;
+#sidebar nav ul li a {
+    color: #ffffff; /* 側邊欄內文字顏色 */
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+#sidebar nav ul li a:hover {
+    background-color: #444;
+}
+
+/* 關於我部分 */
+#about {
+    display: flex;
+    align-items: center;
+}
+
+#about img {
+    margin-left: 20px;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+#about h2 {
+    font-size: 2.5em;
+}
+
+#about p {
+    max-width: 600px;
+    line-height: 1.5;
+    margin-right: 20px;
+}
+
+/* 表格樣式 */
+table {
+    width: 100%;
+    border-collapse: collapse; /* 使邊框合併為一個 */
 }
 
 th, td {
-    padding: 12px;
+    border-bottom: 1px solid white; /* 白色橫線隔開 */
+    padding: 8px;
     text-align: left;
 }
 
+th {
+    background-color: rgba(68, 68, 68, 0.384); /* 可選的背景顏色，用於表頭 */
+}
+
+/* 標題樣式 */
+#experience h2 {
+    font-size: 2.5em; /* 放大字體 */
+    max-width: 600px;
+    line-height: 1.5;
+    margin-right: 20px;
+}
+
+#education h2 {
+    font-size: 2.5em; /* 放大字體 */
+    max-width: 600px;
+    line-height: 1.5;
+    margin-right: 20px;
+}
+
+#contact h2 {
+    font-size: 2.5em; /* 放大字體 */
+    max-width: 600px;
+    line-height: 1.5;
+    margin-right: 20px;
+}
+
+/* 關於我部分 */
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 文字和圖片靠左對齊 */
+}
+
+.text-content {
+    text-align: left; /* 文字左對齊 */
+}
+
+.text-content h2 {
+    font-size: 2.5em;
+}
+
+.text-content p {
+    max-width: 600px;
+    line-height: 1.5;
+    margin: 0; /* 移除左右邊距 */
+    margin-bottom: 5px; /* 在文字和圖片之間添加間隔 */
+}
+
+/* 圖片網格 */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 兩列 */
+    gap: 5px; /* 圖片間隔 */
+    margin-top: 10px;
+    width: 100%;
+    max-width: 600px; /* 最大寬度 */
+}
+
+.image-grid img {
+    width: 100%;
+    height: 0;
+    padding-top: 100%; /* 正方形 */
+    object-fit: cover;
+    border-radius: 8px; /* 圓角 */
+}
+
+/* 調整個人資料圖片的樣式 */
+#profile-pic {
+    width: 250px; /* 縮小圖片 */
+    height: auto;
+    border-radius: 10px;
+}
+
+
+/* 社交連結 */
+#social-links {
+    margin-top: 20px;
+}
+
+#social-links a {
+    color: #ffffff; /* 圖標顏色 */
+    text-decoration: none;
+    font-size: 24px; /* 圖標大小 */
+    margin-right: 15px; /* 圖標間隔 */
+}
+
+#social-links a:hover {
+    color: #ccc; /* 圖標懸停顏色 */
+}
+
+
+/* 響應式設計 */
 @media screen and (max-width: 768px) {
-    #sidebar {
-        width: 100%;
-        height: auto;
-    }
     #main-content {
         margin-left: 0;
     }
-    #sidebar.collapsed + #main-content {
-        margin-left: 0;
+
+    #sidebar {
+        width: 100%;
+        height: auto; /* 在小螢幕上調整高度自適應 */
+        position: static; /* 讓側邊欄不再固定 */
+    }
+
+    #sidebar nav ul li a {
+        padding: 15px; /* 增加點擊區域以適應小屏幕 */
+    }
+
+    #about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-grid {
+        max-width: 100%; /* 使圖片網格適應小螢幕 */
+    }
+
+    .home-img {
+        width: 150px; /* 在小螢幕上進一步縮小圖片 */
     }
 }

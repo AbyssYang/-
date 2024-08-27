@@ -1,7 +1,6 @@
+// script.js
 document.getElementById('toggleMenu').addEventListener('click', function() {
-    var sidebar = document.getElementById('sidebar');
-    var mainContent = document.getElementById('main-content');
-    
-    sidebar.classList.toggle('collapsed');
-    mainContent.classList.toggle('collapsed');
+    const sidebar = document.getElementById('sidebar');
+    sidebar.style.width = sidebar.style.width === '0px' ? '250px' : '0px';
+    document.getElementById('main-content').style.marginLeft = sidebar.style.width === '0px' ? '0' : '250px';
 });
